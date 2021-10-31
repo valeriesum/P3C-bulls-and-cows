@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartPage extends World
 {
+    //Background music
+    GreenfootSound backgroundMusic = new GreenfootSound("Bicycle.mp3");
+    
     /**
      * Constructor for objects of class StartPage.
      * 
@@ -22,13 +25,13 @@ public class StartPage extends World
      */
     public void act() 
     {
-        //backgroundMusic.setVolume(30);
-        //backgroundMusic.play(); // Playing background music.
+        backgroundMusic.setVolume(30);
+        backgroundMusic.play(); // Playing background music.
         
         // If player presses "Q", the game begins.
         if(Greenfoot.isKeyDown("q"))
         {
-            //backgroundMusic.stop(); // Stopping music.
+            backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new InstructionsAndDifficulty());
         }
     }
