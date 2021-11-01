@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MainGame
+comment0.text=\r\n\ Primary\ game\ portion\ of\ the\ program.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ Oct.\ 30/21\r\n
+comment1.params=
+comment1.target=MainGame()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MainGame.\r\n\ \r\n
+numComments=2
