@@ -45,7 +45,10 @@ public class MainGame extends World
     }
 
     /**
-     * This method
+     * This method checks to see if the element imputted by the user is a 
+     * letter of the alphabet.
+     * 
+     * @param letter Inputted letter
      */
     public boolean check(char letter)
     {
@@ -62,8 +65,10 @@ public class MainGame extends World
 
     public void act()
     {
+        // Repeats number of tries
         while(counter != 0)
         {
+            // Repeats 4 times, number of letters
             while(guess.size() < 4)
             {
                 check(Greenfoot.getKey().charAt(0));
