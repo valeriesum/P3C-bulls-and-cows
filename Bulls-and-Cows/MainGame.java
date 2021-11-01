@@ -21,5 +21,6 @@ public class MainGame extends World
         
         backgroundMusic.setVolume(30);
         backgroundMusic.play(); // Playing background music.
+        
     }
 }
