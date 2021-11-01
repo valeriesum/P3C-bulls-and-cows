@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.Set.*;
+import java.util.Set;
+import java.util.ArrayList;
 /**
  * Primary game portion of the program.
  *
@@ -17,6 +18,7 @@ public class MainGame extends World
     private static int numLetters = 4;
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    private String theWord;
 
     /**
      * Constructor for objects of class MainGame.
