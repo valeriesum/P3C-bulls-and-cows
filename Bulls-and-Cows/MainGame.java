@@ -11,11 +11,11 @@ public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
     //Counter for number of tries
-    private int counter = 5;
+    private static int counter = 5;
     //User guess
     Stack<String> guess = new Stack<String>();
     //Number of letters in word
-    private static int numLetters = 4;
+    private static final int numLetters = 4;
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
@@ -66,12 +66,18 @@ public class MainGame extends World
     public void act()
     {
         // Repeats number of tries
-        while(counter != 0)
+        String userInput = "";
+        userInput = Greenfoot.getKey();
+        if(counter != 0)
         {
             // Repeats 4 times, number of letters
-            while(guess.size() < 4)
+            if(guess.size() < 4)
             {
-                check(Greenfoot.getKey().charAt(0));
+                if (userInput != null){
+                    if(check(userInput.charAt(0))){
+                        guess.push(userInput);
+                    }   
+                }
             }
         }
     }
