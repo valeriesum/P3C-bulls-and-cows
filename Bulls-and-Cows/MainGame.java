@@ -9,7 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
+    //Counter for number of tries 
+    private int counter = 5;
+    Stack<String> guess = new Stack<String>();
     
+    private static int numLetters = 4;
     /**
      * Constructor for objects of class MainGame.
      * 
@@ -21,6 +25,15 @@ public class MainGame extends World
         
         backgroundMusic.setVolume(30);
         backgroundMusic.play(); // Playing background music.
-        
     }
+    
+    public void act()
+    {
+        while(!guessCorrect)
+        {
+            while(guess.size() < 4)
+            {
+                
+            }    
+        }
 }
