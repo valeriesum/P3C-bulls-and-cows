@@ -68,6 +68,10 @@ public class MainGame extends World
         String userInput = "";
         //Checks user input periodically
         userInput = Greenfoot.getKey();
+        
+        Integer theCounter = new Integer(counter);
+        addObject(new Text("Tries Left: " + theCounter.toString(), 32), 95, 50);
+
         if(counter != 0)
         {
             // Repeats 4 times, number of letters
