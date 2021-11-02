@@ -146,7 +146,9 @@ public class MainGame extends World
     //Displays number of bulls and cows
     public void displayBullsAndCows()
     {
-        addObject(new Text((char)bulls, 40, 0, 0, 0, 255, 255, 255), 356, 316);
-        addObject(new Text((char)cows, 40, 0, 0, 0, 255, 255, 255), 630, 316);
+        Integer theBulls = new Integer(bulls);
+        Integer theCows = new Integer(cows);
+        addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
+        addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
     }
 }
