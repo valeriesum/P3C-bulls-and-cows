@@ -74,7 +74,7 @@ public class MainGame extends World
         userInput = Greenfoot.getKey();
         
         Integer theCounter = new Integer(counter);
-        addObject(new Text("Tries Left: " + theCounter.toString(), 32), 95, 50);
+        addObject(new Text("Tries Left: " + theCounter.toString(), 32, 0, 0, 0), 95, 50);
 
         if(counter != 0)
         {
@@ -85,12 +85,13 @@ public class MainGame extends World
                     if(check(userInput.charAt(0))){
                         guess.push(userInput);
                         counter--;
-                        addObject(new Text(userInput, 32), 95, 50);
+                        addObject(new Text(userInput, 32, 100, 85, 54), 95, 50);
                     }   
                 }
             }
         }
     }
+    
     public boolean checkBullsAndCows()
     {
         boolean correct = true;
@@ -112,4 +113,5 @@ public class MainGame extends World
         }
         return correct;
     }
+    
 }
