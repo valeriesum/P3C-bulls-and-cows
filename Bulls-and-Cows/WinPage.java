@@ -1,20 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Displays if player can not guess the word in time. They can return back
+ * Displays if player can guesses the word in time. They can return back
  * to the start page.
  * 
- * @author (your name) 
- * @version Oct. 30/21
+ * @author Valerie Sum
+ * @version Nov. 2/21
  */
-public class LosePage extends World
+public class WinPage extends World
 {
-
     /**
-     * Constructor for objects of class LosePage.
+     * Constructor for objects of class WinPage.
      * 
      */
-    public LosePage()
+    public WinPage()
     {    
         // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 

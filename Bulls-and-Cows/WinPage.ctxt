@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=WinPage
+comment0.text=\r\n\ Displays\ if\ player\ can\ guesses\ the\ word\ in\ time.\ They\ can\ return\ back\r\n\ to\ the\ start\ page.\r\n\ \r\n\ @author\ Valerie\ Sum\r\n\ @version\ Nov.\ 2/21\r\n
+comment1.params=
+comment1.target=WinPage()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ WinPage.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3
