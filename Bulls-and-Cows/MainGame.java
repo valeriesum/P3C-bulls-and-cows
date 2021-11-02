@@ -50,12 +50,12 @@ public class MainGame extends World
      * 
      * @param letter Inputted letter
      */
-    public boolean check(char letter)
+    public boolean check(char input)
     {
         boolean check = false;
         for(char c : alphabet)
         {
-            if(letter == c)
+            if(input == c)
             {
                 check = true;
             }
