@@ -11,11 +11,11 @@ public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
     //Counter for number of tries
-    private int counter = 5;
+    private static int counter = 5;
     //User guess
     Stack<String> guess = new Stack<String>();
     //Number of letters in word
-    private static int numLetters = 4;
+    private static final int numLetters = 4;
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
@@ -45,7 +45,10 @@ public class MainGame extends World
     }
 
     /**
-     * This method
+     * This method checks to see if the element imputted by the user is a 
+     * letter of the alphabet.
+     * 
+     * @param letter Inputted letter
      */
     public boolean check(char letter)
     {
@@ -62,11 +65,19 @@ public class MainGame extends World
 
     public void act()
     {
-        while(counter != 0)
+        // Repeats number of tries
+        String userInput = "";
+        userInput = Greenfoot.getKey();
+        if(counter != 0)
         {
-            while(guess.size() < 4)
+            // Repeats 4 times, number of letters
+            if(guess.size() < 4)
             {
-                check(Greenfoot.getKey().charAt(0));
+                if (userInput != null){
+                    if(check(userInput.charAt(0))){
+                        guess.push(userInput);
+                    }   
+                }
             }
         }
     }
