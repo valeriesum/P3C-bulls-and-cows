@@ -94,5 +94,6 @@ target8.x=0
 target8.y=0
 version=3.0.0
 width=1550
+world.lastInstantiated=StartPage
 xPosition=0
 yPosition=0
