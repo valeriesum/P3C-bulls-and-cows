@@ -81,10 +81,7 @@ public class MainGame extends World
         
         Integer theCounter = new Integer(counter);
 
-        addObject(new Text("Tries Left: " + theCounter.toString(), 32, 255, 255, 255, 0, 0, 0), 95, 50);
-
-
-
+        addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
 
         if(counter != 0)
         {
@@ -97,13 +94,13 @@ public class MainGame extends World
                         char programInput = userInput.charAt(0);
                         guess.push(programInput);
                         if (guess.size()==1){
-                            addObject(new Text(programInput, 100), 330, 475);
+                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 330, 470);
                         } else if (guess.size()==2){
-                            addObject(new Text(programInput, 100), 430, 475); 
+                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 430, 470); 
                         } else if (guess.size()==3){
-                            addObject(new Text(programInput, 100), 530, 475);
+                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 530, 470);
                         } else if (guess.size()==4){
-                            addObject(new Text(programInput, 100), 630, 475);
+                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 630, 470);
                         }
                         if (Greenfoot.isKeyDown("Backspace")){
                             guess.pop();
@@ -113,7 +110,10 @@ public class MainGame extends World
                 }
             }
         }
-        displayBullsAndCows();
+        if(Greenfoot.isKeyDown("enter"))
+        {
+            displayBullsAndCows();
+        }
     }
     
     /**
@@ -126,16 +126,16 @@ public class MainGame extends World
         boolean correct = true;
         for(int i = 4; i > 0; i--)
         {
-            String currentLetter = guess.pop();
-            if(!currentLetter.equals(theWord.charAt(i)) && theWord.contains(currentLetter))
+            char currentLetter = guess.pop();
+            if(currentLetter != theWord.charAt(i) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
             }
-            else if(currentLetter.equals(theWord.charAt(i)))
+            else if(currentLetter == theWord.charAt(i))
             {
                 bulls++;
             }
-            else if(!currentLetter.equals(theWord.charAt(i)))
+            else if(currentLetter != theWord.charAt(i))
             {
                 correct = false;
             }
@@ -146,9 +146,7 @@ public class MainGame extends World
     //Displays number of bulls and cows
     public void displayBullsAndCows()
     {
-        Integer theBulls = new Integer(bulls);
-        Integer theCows = new Integer(cows);
-        addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
-        addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
+        addObject(new Text((char)bulls, 40, 0, 0, 0, 255, 255, 255), 356, 316);
+        addObject(new Text((char)cows, 40, 0, 0, 0, 255, 255, 255), 630, 316);
     }
 }
