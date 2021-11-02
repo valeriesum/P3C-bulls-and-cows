@@ -66,7 +66,10 @@ public class MainGame extends World
         }
         return check;
     }
-
+    
+    /**
+     * Takes in 5 guesses from user. Counter decreases by one every try.
+     */
     public void act()
     {
         String userInput = "";
@@ -74,7 +77,7 @@ public class MainGame extends World
         userInput = Greenfoot.getKey();
         
         Integer theCounter = new Integer(counter);
-        addObject(new Text("Tries Left: " + theCounter.toString(), 32, 0, 0, 0), 95, 50);
+        addObject(new Text("Tries Left: " + theCounter.toString(), 32, 255, 255, 255, 0, 0, 0), 95, 50);
 
         if(counter != 0)
         {
@@ -84,14 +87,20 @@ public class MainGame extends World
                 if (userInput != null){
                     if(check(userInput.charAt(0))){
                         guess.push(userInput);
-                        counter--;
-                        addObject(new Text(userInput, 32, 100, 85, 54), 95, 50);
+                        counter--; //Fix later, counter is based on # of letters, not tries
+                        addObject(new Text(userInput, 32, 255, 255, 255, 100, 85, 54), 95, 50);
                     }   
                 }
             }
         }
+        displayBullsAndCows();
     }
     
+    /**
+     * Counts number of bulls and cows per guess.
+     * 
+     * @return correct If entire word is correct, it returns true.
+     */
     public boolean checkBullsAndCows()
     {
         boolean correct = true;
@@ -114,4 +123,12 @@ public class MainGame extends World
         return correct;
     }
     
+    //Displays number of bulls and cows
+    public void displayBullsAndCows()
+    {
+        Integer theBulls = new Integer(bulls);
+        Integer theCows = new Integer(cows);
+        addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
+        addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
+    }
 }

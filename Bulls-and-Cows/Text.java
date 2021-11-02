@@ -14,9 +14,10 @@ public class Text extends Actor
      * 
      * @param content The sentences that are wanted to be displayed.
     */
-    public Text(String content, int size, int r, int g, int b) 
+    public Text(String content, int size, int r, int g, int b, int br, int bg, int bb) 
     {
-        Color background = new Color(r, g, b);
-        setImage(new GreenfootImage(content, size, Color.WHITE, background));
+        Color textColor = new Color(r, g, b);
+        Color background = new Color(br, bg, bb);
+        setImage(new GreenfootImage(content, size, textColor, background));
     }    
 }
