@@ -13,7 +13,7 @@ public class MainGame extends World
     //Counter for number of tries
     private static int counter = 5;
     //User guess
-    Stack<String> guess = new Stack<String>();
+    Stack<Character> guess = new Stack<Character>();
     //Number of letters in word
     private static final int numLetters = 4;
     //Array of the alphabet
@@ -52,17 +52,17 @@ public class MainGame extends World
     }
 
     /**
-     * This method checks to see if the element imputted by the user is a 
+     * This method checks to see if the element inputted by the user is a 
      * letter of the alphabet.
      * 
      * @param letter Inputted letter
      */
-    public boolean check(char letter)
+    public boolean check(String input)
     {
         boolean check = false;
-        for(char c : alphabet)
+        for(int i = 0; i < alphabet.length; i ++)
         {
-            if(letter == c)
+            if(input.equals( Character.toString(alphabet[i])))
             {
                 check = true;
             }
@@ -80,7 +80,11 @@ public class MainGame extends World
         userInput = Greenfoot.getKey();
         
         Integer theCounter = new Integer(counter);
+
         addObject(new Text("Tries Left: " + theCounter.toString(), 32, 255, 255, 255, 0, 0, 0), 95, 50);
+
+
+
 
         if(counter != 0)
         {
@@ -88,10 +92,23 @@ public class MainGame extends World
             if(guess.size() < 4)
             {
                 if (userInput != null){
-                    if(check(userInput.charAt(0))){
-                        guess.push(userInput);
-                        counter--; //Fix later, counter is based on # of letters, not tries
-                        addObject(new Text(userInput, 32, 255, 255, 255, 100, 85, 54), 95, 50);
+
+                    if(check(userInput)){
+                        char programInput = userInput.charAt(0);
+                        guess.push(programInput);
+                        if (guess.size()==1){
+                            addObject(new Text(programInput, 100), 330, 475);
+                        } else if (guess.size()==2){
+                            addObject(new Text(programInput, 100), 430, 475); 
+                        } else if (guess.size()==3){
+                            addObject(new Text(programInput, 100), 530, 475);
+                        } else if (guess.size()==4){
+                            addObject(new Text(programInput, 100), 630, 475);
+                        }
+                        if (Greenfoot.isKeyDown("Backspace")){
+                            guess.pop();
+                        }
+
                     }   
                 }
             }

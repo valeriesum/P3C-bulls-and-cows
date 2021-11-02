@@ -22,7 +22,7 @@ public class InstructionsAndDifficulty extends World
     public void act()
     {
         // If player presses "E", the main game begins.
-        if(Greenfoot.isKeyDown("e"))
+        if(Greenfoot.isKeyDown("enter"))
         {
             Greenfoot.setWorld(new MainGame());
         }

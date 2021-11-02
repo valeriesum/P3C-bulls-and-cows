@@ -4,4 +4,6 @@ comment0.text=\r\n\ The\ actual\ text\ that\ will\ be\ displayed\ on\ the\ Instr
 comment1.params=content\ size\ r\ g\ b\ br\ bg\ bb
 comment1.target=Text(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 comment1.text=\r\n\ Creates\ text\ image.\r\n\ Based\ off\ https\://www.youtube.com/watch?v\=NjP3MMJnvGc\r\n\ \r\n\ @param\ content\ The\ sentences\ that\ are\ wanted\ to\ be\ displayed.\r\n
-numComments=2
+comment2.params=content\ size
+comment2.target=Text(char,\ int)
+numComments=3

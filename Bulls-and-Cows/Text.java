@@ -20,4 +20,8 @@ public class Text extends Actor
         Color background = new Color(br, bg, bb);
         setImage(new GreenfootImage(content, size, textColor, background));
     }    
+    public Text(char content, int size) 
+    {
+      setImage(new GreenfootImage(Character.toString(content), size, Color.WHITE, Color.BLACK));
+    }
 }
