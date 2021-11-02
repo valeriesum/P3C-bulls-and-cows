@@ -45,7 +45,7 @@ public class MainGame extends World
     }
 
     /**
-     * This method checks to see if the element imputted by the user is a 
+     * This method checks to see if the element inputted by the user is a 
      * letter of the alphabet.
      * 
      * @param letter Inputted letter
@@ -71,7 +71,6 @@ public class MainGame extends World
         
         Integer theCounter = new Integer(counter);
         addObject(new Text("Tries Left: " + theCounter.toString(), 32), 95, 50);
-
         if(counter != 0)
         {
             // Repeats 4 times, number of letters
@@ -80,8 +79,21 @@ public class MainGame extends World
                 if (userInput != null){
                     if(check(userInput.charAt(0))){
                         guess.push(userInput);
-                        counter--;
-                        addObject(new Text(userInput, 32), 95, 50);
+                        if (guess.size()==1){
+                            addObject(new Text(userInput, 100), 330, 475);
+                        } else if (guess.size()==2){
+                            addObject(new Text(userInput, 100), 430, 475); 
+                        } else if (guess.size()==3){
+                            addObject(new Text(userInput, 100), 530, 475);
+                        } else if (guess.size()==4){
+                            addObject(new Text(userInput, 100), 630, 475);
+                        }
+                        if (Greenfoot.isKeyDown("Backspace")){
+                            guess.pop();
+                        }
+                        if (Greenfoot.isKeyDown("Enter")){
+                            counter--;
+                        }
                     }   
                 }
             }
