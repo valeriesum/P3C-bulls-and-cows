@@ -84,5 +84,10 @@ public class MainGame extends World
                 }
             }
         }
+        else
+        {
+            backgroundMusic.stop(); // Stopping music.
+            Greenfoot.setWorld(new LosePage());
+        }
     }
 }
