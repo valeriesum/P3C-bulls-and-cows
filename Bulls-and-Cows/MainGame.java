@@ -80,6 +80,8 @@ public class MainGame extends World
                 if (userInput != null){
                     if(check(userInput.charAt(0))){
                         guess.push(userInput);
+                        counter--;
+                        addObject(new Text(userInput, 32), 95, 50);
                     }   
                 }
             }
