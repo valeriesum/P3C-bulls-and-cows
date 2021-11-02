@@ -65,8 +65,8 @@ public class MainGame extends World
 
     public void act()
     {
-        // Repeats number of tries
         String userInput = "";
+        //Checks user input periodically
         userInput = Greenfoot.getKey();
         if(counter != 0)
         {
