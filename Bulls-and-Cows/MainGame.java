@@ -92,9 +92,6 @@ public class MainGame extends World
                         if (Greenfoot.isKeyDown("Backspace")){
                             guess.pop();
                         }
-                        if (Greenfoot.isKeyDown("Enter")){
-                            counter--;
-                        }
                     }   
                 }
             }
