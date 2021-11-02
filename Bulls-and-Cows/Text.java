@@ -18,4 +18,8 @@ public class Text extends Actor
     {
       setImage(new GreenfootImage(content, size, Color.WHITE, Color.BLACK));
     }    
+    public Text(char content, int size) 
+    {
+      setImage(new GreenfootImage(Character.toString(content), size, Color.WHITE, Color.BLACK));
+    }
 }
