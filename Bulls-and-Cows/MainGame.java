@@ -19,6 +19,8 @@ public class MainGame extends World
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
+    //Queue of all user's guesses
+    //Queue<
 
     /**
      * Constructor for objects of class MainGame.
@@ -69,24 +71,24 @@ public class MainGame extends World
         //Checks user input periodically
         userInput = Greenfoot.getKey();
         
+        //Displays counter for number of tries
         Integer theCounter = new Integer(counter);
-        addObject(new Text("Tries Left: " + theCounter.toString(), 32), 95, 50);
+        addObject(new Text("Tries Left: " + theCounter.toString(), 32, 0, 0, 0), 95, 50);
 
         if(counter != 0)
         {
-            // Repeats 4 times, number of letters
             if(guess.size() < 4)
             {
                 if (userInput != null){
                     if(check(userInput.charAt(0))){
                         guess.push(userInput);
                         counter--;
-                        addObject(new Text(userInput, 32), 95, 50);
+                        addObject(new Text(userInput, 32, 100, 85, 54), 95, 50);
                     }   
                 }
             }
         }
-        else
+        if(counter == 0)
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
