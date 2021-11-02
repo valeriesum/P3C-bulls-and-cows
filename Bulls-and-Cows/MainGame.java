@@ -19,14 +19,14 @@ public class MainGame extends World
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
-    
+
     //Counters for number of bulls and cows
     public int bulls = 0;
     public int cows = 0;
-    
+
     //Queue to store player's previous guesses
     Queue<Stack> oldGuesses = new Queue<Stack>();
-    
+
     /**
      * Constructor for objects of class MainGame.
      *
@@ -69,7 +69,7 @@ public class MainGame extends World
         }
         return check;
     }
-    
+
     /**
      * Takes in 5 guesses from user. Counter decreases by one every try.
      */
@@ -78,7 +78,7 @@ public class MainGame extends World
         String userInput = "";
         //Checks user input periodically
         userInput = Greenfoot.getKey();
-        
+
         Integer theCounter = new Integer(counter);
 
         addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
@@ -102,20 +102,41 @@ public class MainGame extends World
                         } else if (guess.size()==4){
                             addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 630, 470);
                         }
-                        if (Greenfoot.isKeyDown("Backspace")){
+                        if (Greenfoot.isKeyDown("backspace")){
                             guess.pop();
+                            if(guess.size()==4){
+                                removeObjects(getObjectsAt(630, 470,null));
+                            } else if(guess.size()==3){
+                                removeObjects(getObjectsAt(530, 470,null));
+                            } else if(guess.size()==2){
+                                removeObjects(getObjectsAt(430, 470,null));
+                            } else if(guess.size()==1){
+                                removeObjects(getObjectsAt(330, 470,null));
+                            }
                         }
-
                     }   
                 }
             }
+        }
+        if (Greenfoot.isKeyDown("backspace")&&!guess.isEmpty()){
+            
+            if(guess.size()==1){
+                removeObjects(getObjectsAt(330, 470,null));
+            } else if(guess.size()==2){
+                removeObjects(getObjectsAt(430, 470,null));
+            } else if(guess.size()==3){
+                removeObjects(getObjectsAt(530, 470,null));
+            } else if(guess.size()==4){
+                removeObjects(getObjectsAt(630, 470,null));
+            }
+            guess.pop();
         }
         if(Greenfoot.isKeyDown("enter"))
         {
             displayBullsAndCows();
         }
     }
-    
+
     /**
      * Counts number of bulls and cows per guess.
      * 
@@ -142,7 +163,7 @@ public class MainGame extends World
         }
         return correct;
     }
-    
+
     //Displays number of bulls and cows
     public void displayBullsAndCows()
     {
