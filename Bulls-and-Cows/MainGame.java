@@ -19,6 +19,10 @@ public class MainGame extends World
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
+    
+    //Counters for number of bulls and cows
+    public int bulls = 0;
+    public int cows = 0;
 
     /**
      * Constructor for objects of class MainGame.
@@ -86,5 +90,26 @@ public class MainGame extends World
                 }
             }
         }
+    }
+    public boolean checkBullsAndCows()
+    {
+        boolean correct = true;
+        for(int i = 4; i > 0; i--)
+        {
+            String currentLetter = guess.pop();
+            if(!currentLetter.equals(theWord.charAt(i)) && theWord.contains(currentLetter))
+            {
+                cows++;
+            }
+            else if(currentLetter.equals(theWord.charAt(i)))
+            {
+                bulls++;
+            }
+            else if(!currentLetter.equals(theWord.charAt(i)))
+            {
+                correct = false;
+            }
+        }
+        return correct;
     }
 }

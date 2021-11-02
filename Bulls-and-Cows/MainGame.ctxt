@@ -11,4 +11,6 @@ comment3.target=boolean\ check(char)
 comment3.text=\r\n\ This\ method\ checks\ to\ see\ if\ the\ element\ imputted\ by\ the\ user\ is\ a\ \r\n\ letter\ of\ the\ alphabet.\r\n\ \r\n\ @param\ letter\ Inputted\ letter\r\n
 comment4.params=
 comment4.target=void\ act()
-numComments=5
+comment5.params=
+comment5.target=boolean\ checkBullsAndCows()
+numComments=6
