@@ -142,7 +142,7 @@ public class MainGame extends World
                 counter--;
                 displayPreviousBullsAndCows();
             }
-        }// record change
+        } // record change
         
     }
 
