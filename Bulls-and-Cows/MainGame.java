@@ -19,6 +19,7 @@ public class MainGame extends World
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
+    private char currentLetter;
 
     //Counters for number of bulls and cows
     public int bulls = 0;
@@ -124,6 +125,7 @@ public class MainGame extends World
         }
         if(Greenfoot.isKeyDown("enter"))
         {
+            checkBullsAndCows();
             displayBullsAndCows();
         }
     }
@@ -138,7 +140,9 @@ public class MainGame extends World
         boolean correct = true;
         for(int i = 4; i > 0; i--)
         {
-            char currentLetter = guess.pop();
+            if (!guess.isEmpty()){
+                currentLetter = guess.pop();
+            }
             if(currentLetter != theWord.charAt(i) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
