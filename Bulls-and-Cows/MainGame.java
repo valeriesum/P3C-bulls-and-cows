@@ -207,7 +207,7 @@ public class MainGame extends World
             text = Character.toString(c) + text;
         }
         text = text + "\n";
- 
+        
         String bcText = "Bulls: " + theBulls.toString() + ", Cows: " + theCows.toString();
         addObject(new Text(text + bcText, 25, 0, 0, 0, 236, 163, 61), 100, y);
         y += 50;
