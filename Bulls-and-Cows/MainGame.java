@@ -103,9 +103,6 @@ public class MainGame extends World
                         } else if (guess.size()==4){
                             addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
                         }
-                        if (Greenfoot.isKeyDown("Backspace")){
-                            guess.pop();
-                        }
                     }
                 }
             }
@@ -114,19 +111,24 @@ public class MainGame extends World
 
             if(guess.size()==1){
                 removeObjects(getObjectsAt(330, 470,null));
+                guess.pop();
             } else if(guess.size()==2){
                 removeObjects(getObjectsAt(430, 470,null));
+                guess.pop();
             } else if(guess.size()==3){
                 removeObjects(getObjectsAt(530, 470,null));
+                guess.pop();
             } else if(guess.size()==4){
                 removeObjects(getObjectsAt(630, 470,null));
+                guess.pop();
             }
-            guess.pop();
+            
         }
         if(Greenfoot.isKeyDown("enter"))
         {
             checkBullsAndCows();
             displayBullsAndCows();
+            counter--;
         }
     }
 
