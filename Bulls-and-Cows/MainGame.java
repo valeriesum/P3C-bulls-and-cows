@@ -87,14 +87,14 @@ public class MainGame extends World
         //Checks user input periodically
         userInput = Greenfoot.getKey();
         Integer theCounter = new Integer(counter);
-
+        counter = Math.max(0,counter);
         addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
         bulls = 0;
         cows = 0;
-        if(counter != 0)
+        
+        if(counter >0)
         {
-            // Repeats 4 times, number of letters
-            if(guess.size() < 4)
+            if(guess.size() <= 4)
             {
                 if (userInput != null){
 
