@@ -135,7 +135,7 @@ public class MainGame extends World
             enterDown = !enterDown;
             if (enterDown){
                 checkBullsAndCows();
-                displayBullsAndCows();
+                displayCurrentBullsAndCows();
                 clearScreen();
                 counter--;
             }
@@ -182,7 +182,7 @@ public class MainGame extends World
     /**
      * Displays number of bulls and cows.
      */
-    public void displayBullsAndCows()
+    public void displayCurrentBullsAndCows()
     {
         Integer theBulls = new Integer(bulls);
         Integer theCows = new Integer(cows);
