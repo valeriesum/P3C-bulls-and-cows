@@ -17,4 +17,5 @@ comment5.target=boolean\ checkBullsAndCows()
 comment5.text=\r\n\ Counts\ number\ of\ bulls\ and\ cows\ per\ guess.\r\n\ \r\n\ @return\ correct\ If\ entire\ word\ is\ correct,\ it\ returns\ true.\r\n
 comment6.params=
 comment6.target=void\ displayBullsAndCows()
+comment6.text=\r\n\ Displays\ number\ of\ bulls\ and\ cows.\r\n
 numComments=7

@@ -94,18 +94,17 @@ public class MainGame extends World
                         char programInput = userInput.charAt(0);
                         guess.push(programInput);
                         if (guess.size()==1){
-                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 330, 470);
+                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
                         } else if (guess.size()==2){
-                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 430, 470); 
+                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 430, 480); 
                         } else if (guess.size()==3){
-                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 530, 470);
+                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
                         } else if (guess.size()==4){
-                            addObject(new Text(programInput, 100, 0, 0, 0, 255, 216, 137), 630, 470);
+                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
                         }
                         if (Greenfoot.isKeyDown("Backspace")){
                             guess.pop();
                         }
-
                     }   
                 }
             }
@@ -143,7 +142,9 @@ public class MainGame extends World
         return correct;
     }
     
-    //Displays number of bulls and cows
+    /**
+     * Displays number of bulls and cows.
+     */
     public void displayBullsAndCows()
     {
         Integer theBulls = new Integer(bulls);
