@@ -149,7 +149,16 @@ public class MainGame extends World
                 
             }
         }// record change
-
+        if(counter == 0) //Player loses
+        {
+            backgroundMusic.stop(); // Stopping music.
+            Greenfoot.setWorld(new LosePage());
+        }
+        else if(bulls == 4)
+        {
+            backgroundMusic.stop(); // Stopping music.
+            Greenfoot.setWorld(new WinPage());
+        }
     }
 
     public void clearScreen(){
@@ -176,6 +185,7 @@ public class MainGame extends World
             {
                 cows++;
             }
+           
             else if(currentLetter == theWord.charAt(i))
             {
                 bulls++;
