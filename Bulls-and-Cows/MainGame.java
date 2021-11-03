@@ -33,6 +33,8 @@ public class MainGame extends World
 
     //Queue to store player's previous guesses
     Queue<Stack> oldGuesses = new Queue<Stack>();
+    
+    int y = 100;
 
     /**
      * Constructor for objects of class MainGame.
@@ -180,7 +182,7 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows.
+     * Displays number of bulls and cows for currernt guess.
      */
     public void displayCurrentBullsAndCows()
     {
@@ -188,5 +190,25 @@ public class MainGame extends World
         Integer theCows = new Integer(cows);
         addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
         addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
+    }
+    
+    /**
+     * Display number of bulls cows from previous guesses on sidebar.
+     */
+    public void displayPreviousBullsAndCows()
+    {
+        Integer theBulls = new Integer(bulls);
+        Integer theCows = new Integer(cows);
+
+        String text = "";
+        for(Character c: guess)
+        {
+            text = Character.toString(c) + text;
+        }
+        text = text + "\n";
+ 
+        String bcText = "Bulls: " + theBulls.toString() + ", Cows: " + theCows.toString();
+        addObject(new Text(text + bcText, 25, 0, 0, 0, 236, 163, 61), 100, y);
+        y += 50;
     }
 }
