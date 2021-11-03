@@ -141,11 +141,12 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
+                displayPreviousBullsAndCows();
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
                 clearScreen();
                 counter--;
-                displayPreviousBullsAndCows();
+                
             }
         }// record change
 
