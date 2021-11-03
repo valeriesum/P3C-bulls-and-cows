@@ -147,13 +147,8 @@ public class MainGame extends World
                 counter--;
                 displayPreviousBullsAndCows();
             }
-<<<<<<< HEAD
-        } // record change
-        
-=======
         }// record change
 
->>>>>>> 34a25018d2438372e16704da76950a751453e67d
     }
 
     public void clearScreen(){
