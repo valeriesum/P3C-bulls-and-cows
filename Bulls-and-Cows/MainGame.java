@@ -124,7 +124,8 @@ public class MainGame extends World
         }
         if(Greenfoot.isKeyDown("enter"))
         {
-            displayBullsAndCows();
+            displayCurrentBullsAndCows();
+            displayPreviousBullsAndCows();
         }
     }
 
@@ -156,13 +157,33 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows.
+     * Displays number of bulls and cows for currernt guess.
      */
-    public void displayBullsAndCows()
+    public void displayCurrentBullsAndCows()
     {
         Integer theBulls = new Integer(bulls);
         Integer theCows = new Integer(cows);
         addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
         addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
+    }
+    
+    /**
+     * Display number of bulls cows from previous guesses on sidebar.
+     */
+    public void displayPreviousBullsAndCows()
+    {
+        Integer theBulls = new Integer(bulls);
+        Integer theCows = new Integer(cows);
+        /**
+        String text = "";
+        for(int i = 0; i < guess.size(); i++)
+        {
+            text = text + guess.pop();
+        }
+        text = text + "\n";
+        */
+        String text = guess.toString() + "\n";
+        String bcText = "Bulls: " + theBulls.toString() + ", Cows: " + theCows.toString();
+        addObject(new Text(text + bcText, 25, 0, 0, 0, 236, 163, 61), 100, 200);
     }
 }
