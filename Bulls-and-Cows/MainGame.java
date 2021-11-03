@@ -4,8 +4,8 @@ import java.util.ArrayList;
 /**
  * Primary game portion of the program.
  *
- * @author (your name)
- * @version Oct. 30/21
+ * @author David, Catherine, Valerie
+ * @version Nov. 2/21
  */
 public class MainGame extends World
 {

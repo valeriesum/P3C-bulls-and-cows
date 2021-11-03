@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LosePage
-comment0.text=\r\n\ Displays\ if\ player\ can\ not\ guess\ the\ word\ in\ time.\ They\ can\ return\ back\r\n\ to\ the\ start\ page.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ Oct.\ 30/21\r\n
+comment0.text=\r\n\ Displays\ if\ player\ can\ not\ guess\ the\ word\ within\ 5\ tries.\ They\ can\ return\ \r\n\ back\ to\ the\ start\ page.\r\n\ \r\n\ @author\ Valerie\ \r\n\ @version\ Oct.\ 30/21\r\n
 comment1.params=
 comment1.target=LosePage()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LosePage.\r\n\ \r\n

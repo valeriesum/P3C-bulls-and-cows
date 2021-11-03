@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StartPage
-comment0.text=\r\n\ Start\ page\ for\ Bulls\ &\ Cows.\r\n\ \r\n\ @author\ Valerie\ Sum\ \r\n\ @version\ Oct.\ 26/21\r\n
+comment0.text=\r\n\ Start\ page\ for\ Bulls\ &\ Cows.\r\n\ \r\n\ @author\ Valerie\ \r\n\ @version\ Oct.\ 26/21\r\n
 comment1.params=
 comment1.target=StartPage()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartPage.\r\n\ \r\n

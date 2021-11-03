@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Text
-comment0.text=\r\n\ The\ actual\ text\ that\ will\ be\ displayed\ on\ the\ InstructionPage\ screen.\r\n\ \r\n\ @author\ Valerie\ Sum\r\n\ @version\ Oct.\ 30/21\r\n
+comment0.text=\r\n\ The\ actual\ text\ that\ will\ be\ displayed\ on\ the\ InstructionPage\ screen.\r\n\ \r\n\ @author\ Valerie\ \r\n\ @version\ Oct.\ 30/21\r\n
 comment1.params=content\ size\ r\ g\ b\ br\ bg\ bb
 comment1.target=Text(char,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 comment1.text=\r\n\ Creates\ text\ image.\r\n\ Based\ off\ https\://www.youtube.com/watch?v\=NjP3MMJnvGc\r\n\ \r\n\ @param\ content\ The\ sentences\ that\ are\ wanted\ to\ be\ displayed.\r\n

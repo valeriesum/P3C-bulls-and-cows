@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Displays if player can guesses the word in time. They can return back
+ * Displays if player can guess the word. They can return back
  * to the start page.
  * 
- * @author Valerie Sum
+ * @author Valerie
  * @version Nov. 2/21
  */
 public class WinPage extends World

@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Displays if player can not guess the word in time. They can return back
- * to the start page.
+ * Displays if player can not guess the word within 5 tries. They can return 
+ * back to the start page.
  * 
- * @author (your name) 
+ * @author Valerie 
  * @version Oct. 30/21
  */
 public class LosePage extends World

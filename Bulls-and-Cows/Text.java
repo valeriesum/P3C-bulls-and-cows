@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The actual text that will be displayed on the InstructionPage screen.
  * 
- * @author Valerie Sum
+ * @author Valerie 
  * @version Oct. 30/21
  */
 public class Text extends Actor
