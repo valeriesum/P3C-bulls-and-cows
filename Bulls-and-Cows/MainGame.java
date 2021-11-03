@@ -33,7 +33,7 @@ public class MainGame extends World
 
     //Queue to store player's previous guesses
     Queue<Stack> oldGuesses = new Queue<Stack>();
-    
+
     int y = 100;
 
     /**
@@ -55,6 +55,9 @@ public class MainGame extends World
         }
         theWord = myList.get((int)Math.floor(Math.random()*myList.size()));
         counter = COUNTER;
+
+        counter = Math.max(0,counter);
+
     }
 
     public String returnGuess(){
@@ -88,12 +91,10 @@ public class MainGame extends World
         String userInput = "";
         //Checks user input periodically
         userInput = Greenfoot.getKey();
-        Integer theCounter = new Integer(counter);
-        counter = Math.max(0,counter);
-        addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
+
         bulls = 0;
         cows = 0;
-        
+        Integer theCounter = new Integer(counter);
         if(counter >0)
         {
             if(guess.size() <= 4)
@@ -112,9 +113,13 @@ public class MainGame extends World
                         } else if (guess.size()==4){
                             addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
                         }
+
                     }
+                    removeObjects(getObjectsAt(95,50,null));
+                    addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
                 }
             }
+
         }
         if (Greenfoot.isKeyDown("backspace")&&!guess.isEmpty()){
 
@@ -142,8 +147,13 @@ public class MainGame extends World
                 counter--;
                 displayPreviousBullsAndCows();
             }
+<<<<<<< HEAD
         } // record change
         
+=======
+        }// record change
+
+>>>>>>> 34a25018d2438372e16704da76950a751453e67d
     }
 
     public void clearScreen(){
@@ -192,7 +202,7 @@ public class MainGame extends World
         addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
         addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
     }
-    
+
     /**
      * Display number of bulls cows from previous guesses on sidebar.
      */
@@ -207,7 +217,7 @@ public class MainGame extends World
             text = Character.toString(c) + text;
         }
         text = text + "\n";
- 
+
         String bcText = "Bulls: " + theBulls.toString() + ", Cows: " + theCows.toString();
         addObject(new Text(text + bcText, 25, 0, 0, 0, 236, 163, 61), 100, y);
         y += 50;
