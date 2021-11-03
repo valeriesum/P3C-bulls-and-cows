@@ -174,15 +174,14 @@ public class MainGame extends World
     {
         Integer theBulls = new Integer(bulls);
         Integer theCows = new Integer(cows);
-        /**
+
         String text = "";
-        for(int i = 0; i < guess.size(); i++)
+        for(char c: guess)
         {
-            text = text + guess.pop();
+            text = Character.toString(guess.pop()) + text;
         }
         text = text + "\n";
-        */
-        String text = guess.toString() + "\n";
+ 
         String bcText = "Bulls: " + theBulls.toString() + ", Cows: " + theCows.toString();
         addObject(new Text(text + bcText, 25, 0, 0, 0, 236, 163, 61), 100, 200);
     }
