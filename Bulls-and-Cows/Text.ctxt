@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Text
-comment0.text=\r\n\ The\ actual\ text\ that\ will\ be\ displayed\ on\ the\ InstructionPage\ screen.\r\n\ \r\n\ @author\ Valerie\ \r\n\ @version\ Oct.\ 30/21\r\n
+comment0.text=\n\ The\ actual\ text\ that\ will\ be\ displayed\ on\ the\ InstructionPage\ screen.\n\ \n\ @author\ Valerie\ \n\ @version\ Oct.\ 30/21\n
 comment1.params=content\ size\ r\ g\ b\ br\ bg\ bb
 comment1.target=Text(char,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Creates\ text\ image.\r\n\ Based\ off\ https\://www.youtube.com/watch?v\=NjP3MMJnvGc\r\n\ \r\n\ @param\ content\ The\ sentences\ that\ are\ wanted\ to\ be\ displayed.\r\n
+comment1.text=\n\ Creates\ text\ image.\n\ Based\ off\ https\://www.youtube.com/watch?v\=NjP3MMJnvGc\n\ \n\ @param\ content\ The\ sentences\ that\ are\ wanted\ to\ be\ displayed.\n
 comment2.params=content\ size\ r\ g\ b\ br\ bg\ bb
 comment2.target=Text(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 numComments=3

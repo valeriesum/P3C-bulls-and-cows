@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=StartPage
-comment0.text=\r\n\ Start\ page\ for\ Bulls\ &\ Cows.\r\n\ \r\n\ @author\ Valerie\ \r\n\ @version\ Oct.\ 26/21\r\n
+comment0.text=\n\ Start\ page\ for\ Bulls\ &\ Cows.\n\ \n\ @author\ Valerie\ \n\ @version\ Oct.\ 26/21\n
 comment1.params=
 comment1.target=StartPage()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartPage.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ StartPage.\n\ \n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Player\ can\ press\ Q\ to\ continue.\r\n
+comment2.text=\n\ Player\ can\ press\ Q\ to\ continue.\n
 numComments=3
