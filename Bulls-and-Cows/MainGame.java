@@ -29,6 +29,9 @@ public class MainGame extends World
     private String keyStateOld;
     private String keyStateNew;
 
+    private int newBulls;
+    private int newCows;
+
     private boolean enterDown;
 
     //Queue to store player's previous guesses
@@ -57,7 +60,7 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-
+        System.out.println(theWord);
     }
 
     public String returnGuess(){
@@ -92,8 +95,6 @@ public class MainGame extends World
         //Checks user input periodically
         userInput = Greenfoot.getKey();
 
-        bulls = 0;
-        cows = 0;
         Integer theCounter = new Integer(counter);
         if(counter >0)
         {
@@ -141,24 +142,33 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-                displayPreviousBullsAndCows();
+                
+                
+                
                 checkBullsAndCows();
+                newBulls = bulls;
+                newCows = cows;
                 displayCurrentBullsAndCows();
+                displayPreviousBullsAndCows();
+                bulls = 0;
+                cows = 0;
+                
+                
                 clearScreen();
                 counter--;
-                
+
             }
         }// record change
-        if(counter == 0) //Player loses
+        if(newBulls == 4)
+        {
+            backgroundMusic.stop(); // Stopping music.
+            Greenfoot.setWorld(new WinPage());
+        } else if(counter == 0) //Player loses
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
         }
-        else if(bulls == 4)
-        {
-            backgroundMusic.stop(); // Stopping music.
-            Greenfoot.setWorld(new WinPage());
-        }
+        
     }
 
     public void clearScreen(){
@@ -181,16 +191,15 @@ public class MainGame extends World
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
             }
-            if(currentLetter != theWord.charAt(i) && theWord.contains(Character.toString(currentLetter)))
+            if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
             }
-           
-            else if(currentLetter == theWord.charAt(i))
+            else if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
             }
-            else if(currentLetter != theWord.charAt(i))
+            else if(currentLetter != theWord.charAt(i-1))
             {
                 correct = false;
             }
@@ -203,8 +212,8 @@ public class MainGame extends World
      */
     public void displayCurrentBullsAndCows()
     {
-        Integer theBulls = new Integer(bulls);
-        Integer theCows = new Integer(cows);
+        Integer theBulls = new Integer(newBulls);
+        Integer theCows = new Integer(newCows);
         addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
         addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
     }
@@ -214,8 +223,8 @@ public class MainGame extends World
      */
     public void displayPreviousBullsAndCows()
     {
-        Integer theBulls = new Integer(bulls);
-        Integer theCows = new Integer(cows);
+        Integer theBulls = new Integer(newBulls);
+        Integer theCows = new Integer(newCows);
 
         String text = "";
         for(Character c: guess)
