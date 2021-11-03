@@ -11,7 +11,7 @@ public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
     //Counter for number of tries
-    private static final int COUNTER = 5;
+    private static final int COUNTER = 10;
     //User guess
     Stack<Character> guess = new Stack<Character>();
     //Number of letters in word
@@ -140,6 +140,7 @@ public class MainGame extends World
                 displayCurrentBullsAndCows();
                 clearScreen();
                 counter--;
+                displayPreviousBullsAndCows();
             }
         }// record change
         
