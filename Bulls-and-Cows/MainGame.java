@@ -11,7 +11,7 @@ public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
     //Counter for number of tries
-    private static int counter = 5;
+    private static final int COUNTER = 5;
     //User guess
     Stack<Character> guess = new Stack<Character>();
     //Number of letters in word
@@ -20,10 +20,16 @@ public class MainGame extends World
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
     private char currentLetter;
+    private int counter;
 
     //Counters for number of bulls and cows
     public int bulls = 0;
     public int cows = 0;
+
+    private String keyStateOld;
+    private String keyStateNew;
+
+    private boolean enterDown;
 
     //Queue to store player's previous guesses
     Queue<Stack> oldGuesses = new Queue<Stack>();
@@ -46,6 +52,7 @@ public class MainGame extends World
         } catch(Exception e) {
         }
         theWord = myList.get((int)Math.floor(Math.random()*myList.size()));
+        counter = COUNTER;
     }
 
     public String returnGuess(){
@@ -79,11 +86,11 @@ public class MainGame extends World
         String userInput = "";
         //Checks user input periodically
         userInput = Greenfoot.getKey();
-
         Integer theCounter = new Integer(counter);
 
         addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
-
+        bulls = 0;
+        cows = 0;
         if(counter != 0)
         {
             // Repeats 4 times, number of letters
@@ -122,14 +129,25 @@ public class MainGame extends World
                 removeObjects(getObjectsAt(630, 470,null));
                 guess.pop();
             }
-            
+
         }
-        if(Greenfoot.isKeyDown("enter"))
-        {
-            checkBullsAndCows();
-            displayBullsAndCows();
-            counter--;
-        }
+        if (enterDown != Greenfoot.isKeyDown("enter")){
+            enterDown = !enterDown;
+            if (enterDown){
+                checkBullsAndCows();
+                displayBullsAndCows();
+                clearScreen();
+                counter--;
+            }
+        }// record change
+        
+    }
+
+    public void clearScreen(){
+        removeObjects(getObjectsAt(330, 470,null));
+        removeObjects(getObjectsAt(430, 470,null));
+        removeObjects(getObjectsAt(530, 470,null));
+        removeObjects(getObjectsAt(630, 470,null));
     }
 
     /**
@@ -140,7 +158,7 @@ public class MainGame extends World
     public boolean checkBullsAndCows()
     {
         boolean correct = true;
-        for(int i = 4; i > 0; i--)
+        for(int i = guess.size(); i > 0; i--)
         {
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
