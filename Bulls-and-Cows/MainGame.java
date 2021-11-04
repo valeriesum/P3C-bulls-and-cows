@@ -239,7 +239,7 @@ public class MainGame extends World
         String text = "";
         for(Character c: displayGuess)
         {
-            text = Character.toString(c) + text ;
+            text = Character.toString(c) + text;
         }
         text = text + "\n";
 
