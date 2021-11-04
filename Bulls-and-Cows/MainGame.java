@@ -58,10 +58,6 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 0ab3d37 (Revert "Fixed issues")
     }
 
     public String returnGuess(){
@@ -150,17 +146,14 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-<<<<<<< HEAD
-                displayPreviousBullsAndCows();
-=======
->>>>>>> parent of 0ab3d37 (Revert "Fixed issues")
+                
+
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
-<<<<<<< HEAD
-                clearScreen();
-                counter--;
+
+
                 
-=======
+
                 displayPreviousBullsAndCows();
                 bulls = 0;
                 cows = 0;
@@ -170,7 +163,6 @@ public class MainGame extends World
                 
                 clearScreen();
                 counter--;
->>>>>>> parent of 0ab3d37 (Revert "Fixed issues")
             }
         }// record change
         if(counter == 0) //Player loses
