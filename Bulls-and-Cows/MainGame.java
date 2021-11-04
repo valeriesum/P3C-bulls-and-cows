@@ -14,7 +14,6 @@ public class MainGame extends World
     private static final int COUNTER = 10;
     //User guess
     Stack<Character> guess = new Stack<Character>();
-    Stack<Character> displayGuess = new Stack<Character>();
     //Number of letters in word
     private static final int numLetters = 4;
     //Array of the alphabet
@@ -61,6 +60,7 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
+        System.out.println(theWord);
     }
 
     public String returnGuess(){
@@ -98,14 +98,13 @@ public class MainGame extends World
         Integer theCounter = new Integer(counter);
         if(counter >0)
         {
-            if(guess.size() < 4)
+            if(guess.size() <= 4)
             {
                 if (userInput != null){
 
                     if(check(userInput)){
                         char programInput = userInput.charAt(0);
                         guess.push(programInput);
-                        displayGuess.push(programInput);
                         if (guess.size()==1){
                             addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
                         } else if (guess.size()==2){
@@ -123,30 +122,29 @@ public class MainGame extends World
             }
 
         }
-        if (Greenfoot.isKeyDown("backspace")){
+        if (Greenfoot.isKeyDown("backspace")&&!guess.isEmpty()){
 
             if(guess.size()==1){
                 removeObjects(getObjectsAt(330, 470,null));
                 guess.pop();
-                displayGuess.pop();
             } else if(guess.size()==2){
                 removeObjects(getObjectsAt(430, 470,null));
                 guess.pop();
-                displayGuess.pop();
             } else if(guess.size()==3){
                 removeObjects(getObjectsAt(530, 470,null));
                 guess.pop();
-                displayGuess.pop();
             } else if(guess.size()==4){
                 removeObjects(getObjectsAt(630, 470,null));
                 guess.pop();
-                displayGuess.pop();
             }
-            
+
         }
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
+                
+                
+                
                 checkBullsAndCows();
                 newBulls = bulls;
                 newCows = cows;
@@ -154,12 +152,11 @@ public class MainGame extends World
                 displayPreviousBullsAndCows();
                 bulls = 0;
                 cows = 0;
-                while(!displayGuess.isEmpty()){
-                    displayGuess.pop();
-                }
+                
                 
                 clearScreen();
                 counter--;
+
             }
         }// record change
         if(newBulls == 4)
@@ -230,9 +227,9 @@ public class MainGame extends World
         Integer theCows = new Integer(newCows);
 
         String text = "";
-        for(Character c: displayGuess)
+        for(Character c: guess)
         {
-            text = Character.toString(c) + text ;
+            text = Character.toString(c) + text;
         }
         text = text + "\n";
 
