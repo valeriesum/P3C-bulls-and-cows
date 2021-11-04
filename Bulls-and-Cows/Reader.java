@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Reader {
-    static String url = "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt";
+    static String url = "https://gist.githubusercontent.com/valeriesum/99c5cc34b4c350557884b857431532b3/raw/65f230a253be6fe642e986d87def1d758b3cbcd3/4%2520letter%2520isogram";
     public static void readInto(ArrayList<String> list) throws Exception {
         URL wordsURL = new URL(url);
         BufferedReader in = new BufferedReader(

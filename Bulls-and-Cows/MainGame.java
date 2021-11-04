@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
+    GreenfootSound moo = new GreenfootSound("moo.mp3");
     //Counter for number of tries
     private static final int COUNTER = 10;
     //User guess
@@ -29,6 +30,9 @@ public class MainGame extends World
     private String keyStateOld;
     private String keyStateNew;
 
+    private int newBulls;
+    private int newCows;
+
     private boolean enterDown;
 
     //Queue to store player's previous guesses
@@ -47,6 +51,7 @@ public class MainGame extends World
 
         backgroundMusic.setVolume(30);
         backgroundMusic.play(); // Playing background music.
+        moo.setVolume(30);
 
         ArrayList<String> myList = new ArrayList<String>();
         try{
@@ -57,7 +62,6 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-
     }
 
     public String returnGuess(){
@@ -92,8 +96,6 @@ public class MainGame extends World
         //Checks user input periodically
         userInput = Greenfoot.getKey();
 
-        bulls = 0;
-        cows = 0;
         Integer theCounter = new Integer(counter);
         if(counter >0)
         {
@@ -141,31 +143,44 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-                displayPreviousBullsAndCows();
+
+
+
                 checkBullsAndCows();
+                newBulls = bulls;
+                newCows = cows;
                 displayCurrentBullsAndCows();
+                displayPreviousBullsAndCows();
+                bulls = 0;
+                cows = 0;
+
+
                 clearScreen();
                 counter--;
-                
+                moo.play();
             }
-        }// record change
+        } // record change
         if(counter == 0) //Player loses
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
         }
-        else if(bulls == 4)
+        else if(bulls == 4) //Player wins
         {
             backgroundMusic.stop(); // Stopping music.
-            Greenfoot.setWorld(new WinPage());
+            Greenfoot.setWorld(new LosePage());
         }
+
     }
 
+    /**
+     * Removes all letters from guesses off of screen.
+     */
     public void clearScreen(){
-        removeObjects(getObjectsAt(330, 470,null));
-        removeObjects(getObjectsAt(430, 470,null));
-        removeObjects(getObjectsAt(530, 470,null));
-        removeObjects(getObjectsAt(630, 470,null));
+        removeObjects(getObjectsAt(330, 470, null));
+        removeObjects(getObjectsAt(430, 470, null));
+        removeObjects(getObjectsAt(530, 470, null));
+        removeObjects(getObjectsAt(630, 470, null));
     }
 
     /**
@@ -181,16 +196,15 @@ public class MainGame extends World
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
             }
-            if(currentLetter != theWord.charAt(i) && theWord.contains(Character.toString(currentLetter)))
+            if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
             }
-           
-            else if(currentLetter == theWord.charAt(i))
+            else if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
             }
-            else if(currentLetter != theWord.charAt(i))
+            else if(currentLetter != theWord.charAt(i-1))
             {
                 correct = false;
             }
@@ -199,12 +213,12 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows for currernt guess.
+     * Displays number of bulls and cows for current guess.
      */
     public void displayCurrentBullsAndCows()
     {
-        Integer theBulls = new Integer(bulls);
-        Integer theCows = new Integer(cows);
+        Integer theBulls = new Integer(newBulls);
+        Integer theCows = new Integer(newCows);
         addObject(new Text(theBulls.toString(), 40, 0, 0, 0, 255, 255, 255), 356, 385);
         addObject(new Text(theCows.toString(), 40, 0, 0, 0, 255, 255, 255), 630, 385);
     }
@@ -214,8 +228,8 @@ public class MainGame extends World
      */
     public void displayPreviousBullsAndCows()
     {
-        Integer theBulls = new Integer(bulls);
-        Integer theCows = new Integer(cows);
+        Integer theBulls = new Integer(newBulls);
+        Integer theCows = new Integer(newCows);
 
         String text = "";
         for(Character c: guess)
