@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
-    GreenfootSound moo = new GreenfootSound("moo.mp3");
     //Counter for number of tries
     private static final int COUNTER = 10;
     //User guess
@@ -51,7 +50,6 @@ public class MainGame extends World
 
         backgroundMusic.setVolume(30);
         backgroundMusic.play(); // Playing background music.
-        moo.setVolume(30);
 
         ArrayList<String> myList = new ArrayList<String>();
         try{
@@ -62,7 +60,6 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-        System.out.println(theWord);
     }
 
     public String returnGuess(){
@@ -144,15 +141,7 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-<<<<<<< HEAD
 
-
-
-=======
-                
-                
-                
->>>>>>> parent of eb73191 (Fixed issues)
                 checkBullsAndCows();
                 newBulls = bulls;
                 newCows = cows;
@@ -160,19 +149,12 @@ public class MainGame extends World
                 displayPreviousBullsAndCows();
                 bulls = 0;
                 cows = 0;
-<<<<<<< HEAD
 
-
-                clearScreen();
-                counter--;
-                moo.play();
-=======
                 
                 
                 clearScreen();
                 counter--;
 
->>>>>>> parent of eb73191 (Fixed issues)
             }
         } // record change
         if(counter == 0) //Player loses
