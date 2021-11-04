@@ -11,7 +11,7 @@ public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
     GreenfootSound moo = new GreenfootSound("moo.mp3");
-    
+
     //Counter for number of tries
     private static final int COUNTER = 10;
     //User guess
@@ -61,6 +61,7 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
+        //System.out.println(theWord);
     }
 
     /**
@@ -142,7 +143,7 @@ public class MainGame extends World
                 guess.pop();
                 displayGuess.pop();
             }
-            
+
         }
         //Player inputs guess.
         if (enterDown != Greenfoot.isKeyDown("enter")){
@@ -153,30 +154,31 @@ public class MainGame extends World
                 displayCurrentBullsAndCows();
 
                 displayPreviousBullsAndCows();
-                bulls = 0;
-                cows = 0;
+                
                 while(!displayGuess.isEmpty()){
                     displayGuess.pop();
                 }
-                
+
                 clearScreen();
                 counter--;
+                if(counter == 0) //Player loses
+                {
+                    backgroundMusic.stop(); // Stopping music.
+                    Greenfoot.setWorld(new LosePage());
+                }
+                else if(bulls == 4) //Player wins
+                {
+                    backgroundMusic.stop(); // Stopping music.
+                    Greenfoot.setWorld(new WinPage());
+                }
+                bulls = 0;
+                cows = 0;
+                
                 moo.play();
             }
         } // record change
-        if(counter == 0) //Player loses
-        {
-            backgroundMusic.stop(); // Stopping music.
-            Greenfoot.setWorld(new LosePage());
-            System.out.println(theWord);
-        }
-        else if(bulls == 4)
-        {
-            backgroundMusic.stop(); // Stopping music.
-            Greenfoot.setWorld(new WinPage());
-        }
     }
-    
+
     /**
      * This method deletes all letters from guess off the screen.
      */
@@ -204,7 +206,7 @@ public class MainGame extends World
             {
                 cows++;
             }
-           
+
             else if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
