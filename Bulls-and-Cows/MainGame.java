@@ -169,6 +169,7 @@ public class MainGame extends World
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
+            System.out.println(theWord);
         }
         else if(bulls == 4)
         {
