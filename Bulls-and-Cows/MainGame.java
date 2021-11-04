@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
+    GreenfootSound moo = new GreenfootSound("moo.mp3");
     //Counter for number of tries
     private static final int COUNTER = 10;
     //User guess
@@ -50,6 +51,7 @@ public class MainGame extends World
 
         backgroundMusic.setVolume(30);
         backgroundMusic.play(); // Playing background music.
+        moo.setVolume(30);
 
         ArrayList<String> myList = new ArrayList<String>();
         try{
@@ -60,7 +62,6 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-        System.out.println(theWord);
     }
 
     public String returnGuess(){
@@ -142,9 +143,9 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-                
-                
-                
+
+
+
                 checkBullsAndCows();
                 newBulls = bulls;
                 newCows = cows;
@@ -152,30 +153,34 @@ public class MainGame extends World
                 displayPreviousBullsAndCows();
                 bulls = 0;
                 cows = 0;
-                
-                
+
+
                 clearScreen();
                 counter--;
-
+                moo.play();
             }
-        }// record change
-        if(newBulls == 4)
-        {
-            backgroundMusic.stop(); // Stopping music.
-            Greenfoot.setWorld(new WinPage());
-        } else if(counter == 0) //Player loses
+        } // record change
+        if(counter == 0) //Player loses
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
         }
-        
+        else if(bulls == 4) //Player wins
+        {
+            backgroundMusic.stop(); // Stopping music.
+            Greenfoot.setWorld(new LosePage());
+        }
+
     }
 
+    /**
+     * Removes all letters from guesses off of screen.
+     */
     public void clearScreen(){
-        removeObjects(getObjectsAt(330, 470,null));
-        removeObjects(getObjectsAt(430, 470,null));
-        removeObjects(getObjectsAt(530, 470,null));
-        removeObjects(getObjectsAt(630, 470,null));
+        removeObjects(getObjectsAt(330, 470, null));
+        removeObjects(getObjectsAt(430, 470, null));
+        removeObjects(getObjectsAt(530, 470, null));
+        removeObjects(getObjectsAt(630, 470, null));
     }
 
     /**
@@ -208,7 +213,7 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows for currernt guess.
+     * Displays number of bulls and cows for current guess.
      */
     public void displayCurrentBullsAndCows()
     {
