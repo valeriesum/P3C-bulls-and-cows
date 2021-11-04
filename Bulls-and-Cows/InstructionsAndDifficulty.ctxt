@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InstructionsAndDifficulty
-comment0.text=\r\n\ The\ instructions\ page\ and\ available\ difficulty\ levels\ for\ the\ game.\r\n\ \r\n\ @author\ Valerie\ Sum\ \r\n\ @version\ Oct.\ 26/21\r\n
+comment0.text=\r\n\ The\ instructions\ page\ and\ available\ difficulty\ levels\ for\ the\ game.\r\n\ \r\n\ @author\ Valerie\ \ \r\n\ @version\ Oct.\ 26/21\r\n
 comment1.params=
 comment1.target=InstructionsAndDifficulty()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ InstructionsAndDifficulty.\r\n\ \r\n
