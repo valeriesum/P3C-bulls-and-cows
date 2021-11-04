@@ -61,7 +61,7 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-        System.out.println(theWord);
+        //System.out.println(theWord);
     }
 
     /**
