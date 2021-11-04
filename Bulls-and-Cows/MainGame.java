@@ -197,16 +197,16 @@ public class MainGame extends World
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
             }
-            if(currentLetter != theWord.charAt(i) && theWord.contains(Character.toString(currentLetter)))
+            if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
             }
            
-            else if(currentLetter == theWord.charAt(i))
+            else if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
             }
-            else if(currentLetter != theWord.charAt(i))
+            else if(currentLetter != theWord.charAt(i-1))
             {
                 correct = false;
             }
