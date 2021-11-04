@@ -220,7 +220,7 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows for currernt guess.
+     * Displays number of bulls and cows for current guess.
      */
     public void displayCurrentBullsAndCows()
     {
