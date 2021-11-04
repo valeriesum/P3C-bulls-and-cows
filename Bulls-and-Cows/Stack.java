@@ -3,6 +3,7 @@ import java.util.Iterator;
 public class Stack<E> implements Iterable<E>
 {
     private Node first = null;
+    int counter = 0;
     
     private class Node {
         private E item;
@@ -18,12 +19,18 @@ public class Stack<E> implements Iterable<E>
         first = new Node();
         first.item = item;
         first.next = second;
+        counter++;
     }
     
     public E pop() {
         E item = first.item;
         first = first.next;
+        counter--;
         return item;
+    }
+    
+    public int size() {
+        return counter;
     }
     
     // To make this data structure work with for-each loops

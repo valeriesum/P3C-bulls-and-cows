@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Start page for Bulls & Cows.
  * 
- * @author Valerie Sum 
+ * @author Valerie 
  * @version Oct. 26/21
  */
 public class StartPage extends World
