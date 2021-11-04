@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class MainGame extends World
 {
     GreenfootSound backgroundMusic = new GreenfootSound("Frog in the Well.mp3");
+    GreenfootSound moo = new GreenfootSound("moo.mp3");
+    
     //Counter for number of tries
     private static final int COUNTER = 10;
     //User guess
@@ -47,6 +49,7 @@ public class MainGame extends World
         super(800, 600, 1);
 
         backgroundMusic.setVolume(30);
+        moo.setVolume(30);
         backgroundMusic.play(); // Playing background music.
 
         ArrayList<String> myList = new ArrayList<String>();
@@ -58,10 +61,6 @@ public class MainGame extends World
         counter = COUNTER;
 
         counter = Math.max(0,counter);
-    }
-
-    public String returnGuess(){
-        return theWord;
     }
 
     /**
@@ -95,7 +94,8 @@ public class MainGame extends World
         bulls = 0;
         cows = 0;
         Integer theCounter = new Integer(counter);
-        if(counter >0)
+        //Displaying objects on the screen.
+        if(counter > 0)
         {
             if(guess.size() < 4)
             {
@@ -122,6 +122,7 @@ public class MainGame extends World
             }
 
         }
+        //Deleting letters off the screen.
         if (Greenfoot.isKeyDown("backspace")){
 
             if(guess.size()==1){
@@ -143,16 +144,13 @@ public class MainGame extends World
             }
             
         }
+        //Player inputs guess.
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-                
 
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
-
-
-                
 
                 displayPreviousBullsAndCows();
                 bulls = 0;
@@ -163,8 +161,9 @@ public class MainGame extends World
                 
                 clearScreen();
                 counter--;
+                moo.play();
             }
-        }// record change
+        } // record change
         if(counter == 0) //Player loses
         {
             backgroundMusic.stop(); // Stopping music.
@@ -177,7 +176,10 @@ public class MainGame extends World
             Greenfoot.setWorld(new WinPage());
         }
     }
-
+    
+    /**
+     * This method deletes all letters from guess off the screen.
+     */
     public void clearScreen(){
         removeObjects(getObjectsAt(330, 470,null));
         removeObjects(getObjectsAt(430, 470,null));
