@@ -14,6 +14,7 @@ public class MainGame extends World
     private static final int COUNTER = 10;
     //User guess
     Stack<Character> guess = new Stack<Character>();
+    Stack<Character> displayGuess = new Stack<Character>();
     //Number of letters in word
     private static final int numLetters = 4;
     //Array of the alphabet
@@ -96,13 +97,14 @@ public class MainGame extends World
         Integer theCounter = new Integer(counter);
         if(counter >0)
         {
-            if(guess.size() <= 4)
+            if(guess.size() < 4)
             {
                 if (userInput != null){
 
                     if(check(userInput)){
                         char programInput = userInput.charAt(0);
                         guess.push(programInput);
+                        displayGuess.push(programInput);
                         if (guess.size()==1){
                             addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
                         } else if (guess.size()==2){
@@ -120,26 +122,31 @@ public class MainGame extends World
             }
 
         }
-        if (Greenfoot.isKeyDown("backspace")&&!guess.isEmpty()){
+        if (Greenfoot.isKeyDown("backspace")){
 
             if(guess.size()==1){
                 removeObjects(getObjectsAt(330, 470,null));
                 guess.pop();
+                displayGuess.pop();
             } else if(guess.size()==2){
                 removeObjects(getObjectsAt(430, 470,null));
                 guess.pop();
+                displayGuess.pop();
             } else if(guess.size()==3){
                 removeObjects(getObjectsAt(530, 470,null));
                 guess.pop();
+                displayGuess.pop();
             } else if(guess.size()==4){
                 removeObjects(getObjectsAt(630, 470,null));
                 guess.pop();
+                displayGuess.pop();
             }
-
+            
         }
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
+                
 
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
@@ -150,39 +157,31 @@ public class MainGame extends World
                 displayPreviousBullsAndCows();
                 bulls = 0;
                 cows = 0;
-
-                
+                while(!displayGuess.isEmpty()){
+                    displayGuess.pop();
+                }
                 
                 clearScreen();
                 counter--;
-
             }
-
-        } // record change
-
+        }// record change
         if(counter == 0) //Player loses
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new LosePage());
         }
-
-        else if(bulls == 4) //Player wins
-
+        else if(bulls == 4)
         {
             backgroundMusic.stop(); // Stopping music.
             Greenfoot.setWorld(new WinPage());
         }
-
     }
 
-    /**
-     * Removes all letters from guesses off of screen.
-     */
     public void clearScreen(){
-        removeObjects(getObjectsAt(330, 470, null));
-        removeObjects(getObjectsAt(430, 470, null));
-        removeObjects(getObjectsAt(530, 470, null));
-        removeObjects(getObjectsAt(630, 470, null));
+        removeObjects(getObjectsAt(330, 470,null));
+        removeObjects(getObjectsAt(430, 470,null));
+        removeObjects(getObjectsAt(530, 470,null));
+        removeObjects(getObjectsAt(630, 470,null));
     }
 
     /**
@@ -216,7 +215,7 @@ public class MainGame extends World
     }
 
     /**
-     * Displays number of bulls and cows for current guess.
+     * Displays number of bulls and cows for currernt guess.
      */
     public void displayCurrentBullsAndCows()
     {
@@ -235,9 +234,9 @@ public class MainGame extends World
         Integer theCows = new Integer(cows);
 
         String text = "";
-        for(Character c: guess)
+        for(Character c: displayGuess)
         {
-            text = Character.toString(c) + text;
+            text = Character.toString(c) + text ;
         }
         text = text + "\n";
 
