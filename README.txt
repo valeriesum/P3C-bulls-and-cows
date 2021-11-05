@@ -9,7 +9,7 @@ Data structure used:
   Stack<Character> guess = new Stack<Character>();
       - act method (takes in user's guess in characters)
       - checkBullsAndCows method (takes the user guess and check the number of bulls and cows)
-      - displayPreviousBullsAndCows method (converts the character stack into strings and displays        it in sidebox)
+      - displayPreviousBullsAndCows method (converts the character stack into strings and displays it in sidebox)
       
 - ArrayList
   - string arraylist in MainGame class
