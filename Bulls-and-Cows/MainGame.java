@@ -35,8 +35,7 @@ public class MainGame extends World
     public int cows = 0;
 
     private boolean enterDown;
-
-    
+  
     private Integer theCounter;
 
     int y = 100; //Coordinate for displaying words on sidebar.
@@ -101,16 +100,13 @@ public class MainGame extends World
         //Displaying objects on the screen.
         if(counter > 0 && guess.size() < 4)
         {
-
             checkGuessInput();
-
         }
         checkKeys();
     }
 
     private void checkGuessInput(){
         if (userInput != null){
-
                 if(check(userInput)){
                     char programInput = userInput.charAt(0);
                     guess.push(programInput);
@@ -181,7 +177,7 @@ public class MainGame extends World
                 //resets bulls and cows
                 bulls = 0;
                 cows = 0;
-
+                
                 moo.play();
             }
         } 
