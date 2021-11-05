@@ -154,7 +154,7 @@ public class MainGame extends World
                 displayCurrentBullsAndCows();
 
                 displayPreviousBullsAndCows();
-                
+
                 while(!displayGuess.isEmpty()){
                     displayGuess.pop();
                 }
@@ -173,7 +173,7 @@ public class MainGame extends World
                 }
                 bulls = 0;
                 cows = 0;
-                
+
                 moo.play();
             }
         } // record change
@@ -197,20 +197,25 @@ public class MainGame extends World
     public boolean checkBullsAndCows()
     {
         boolean correct = true;
+        char duplicateLetter = currentLetter;
         for(int i = guess.size(); i > 0; i--)
         {
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
             }
-            if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
-            {
-                cows++;
-            }
-
-            else if(currentLetter == theWord.charAt(i-1))
+            if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
+                duplicateLetter = currentLetter;
             }
+            else if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
+            {
+                cows++;
+                if (currentLetter == duplicateLetter){
+                    cows = 0;
+                }
+            }
+
             else if(currentLetter != theWord.charAt(i-1))
             {
                 correct = false;
