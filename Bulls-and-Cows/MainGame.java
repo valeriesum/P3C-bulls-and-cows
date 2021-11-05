@@ -28,16 +28,13 @@ public class MainGame extends World
     //Counters for number of bulls and cows
     public int bulls = 0;
     public int cows = 0;
-
+    
     private String keyStateOld;
     private String keyStateNew;
 
     private boolean enterDown;
 
-    //Queue to store player's previous guesses
-    Queue<Stack> oldGuesses = new Queue<Stack>();
-
-    int y = 100;
+    int y = 100; //For displaying letters
 
     /**
      * Constructor for objects of class MainGame.
