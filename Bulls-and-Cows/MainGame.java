@@ -145,7 +145,10 @@ public class MainGame extends World
             }
 
         }
-        //Player inputs guess.
+        checkKeys();
+    }
+
+    private void checkKeys(){
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
@@ -176,9 +179,8 @@ public class MainGame extends World
 
                 moo.play();
             }
-        } // record change
+        } 
     }
-
     /**
      * This method deletes all letters from guess off the screen.
      */
