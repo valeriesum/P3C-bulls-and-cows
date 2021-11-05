@@ -34,9 +34,6 @@ public class MainGame extends World
 
     private boolean enterDown;
 
-    //Queue to store player's previous guesses
-    Queue<Stack> oldGuesses = new Queue<Stack>();
-
     int y = 100;
 
     /**
