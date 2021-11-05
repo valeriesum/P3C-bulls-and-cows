@@ -1,6 +1,12 @@
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
+/**
+ * Takes word from URL.
+ * Taken from Mr. Chan.
+ * 
+ * @version Nov. 5/21
+ */
 
 public class Reader {
     static String url = "https://gist.githubusercontent.com/valeriesum/99c5cc34b4c350557884b857431532b3/raw/65f230a253be6fe642e986d87def1d758b3cbcd3/4%2520letter%2520isogram";
