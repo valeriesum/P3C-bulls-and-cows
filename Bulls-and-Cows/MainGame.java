@@ -119,6 +119,7 @@ public class MainGame extends World
                         addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
                     } else if (guess.size()==4){
                         addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
+                        addObject(new Text("Enter to Confirm", 32, 0, 0, 0, 255, 216, 137), 680, 570);
                     }
 
                 }
@@ -191,6 +192,7 @@ public class MainGame extends World
         removeObjects(getObjectsAt(430, 470,null));
         removeObjects(getObjectsAt(530, 470,null));
         removeObjects(getObjectsAt(630, 470,null));
+        removeObjects(getObjectsAt(680, 570,null));
     }
 
     /**
