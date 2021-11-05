@@ -22,6 +22,7 @@ public class MainGame extends World
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private String theWord;
+    private String userInput;
     private char currentLetter;
     private int counter;
 
@@ -29,12 +30,11 @@ public class MainGame extends World
     public int bulls = 0;
     public int cows = 0;
 
-    private String keyStateOld;
-    private String keyStateNew;
-
     private boolean enterDown;
 
     int y = 100;
+    
+    private Integer theCounter;
 
     /**
      * Constructor for objects of class MainGame.
@@ -85,18 +85,25 @@ public class MainGame extends World
      */
     public void act()
     {
-        String userInput = "";
+        userInput = "";
         //Checks user input periodically
         userInput = Greenfoot.getKey();
 
         bulls = 0;
         cows = 0;
-        Integer theCounter = new Integer(counter);
+        theCounter = new Integer(counter);
         //Displaying objects on the screen.
         if(counter > 0 && guess.size() < 4)
         {
 
-            if (userInput != null){
+            checkGuessInput();
+
+        }
+        checkKeys();
+    }
+
+    private void checkGuessInput(){
+        if (userInput != null){
 
                 if(check(userInput)){
                     char programInput = userInput.charAt(0);
@@ -116,12 +123,8 @@ public class MainGame extends World
                 removeObjects(getObjectsAt(95,50,null));
                 addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
             }
-
-        }
-        
-        checkKeys();
     }
-
+    
     private void checkKeys(){
         //Deleting letters off the screen and stack
         if (Greenfoot.isKeyDown("backspace")){
@@ -143,15 +146,14 @@ public class MainGame extends World
                 guess.pop();
                 displayGuess.pop();
             }
-
         }
+        //checks if Enter key is pressed and only reads it once
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-
+                
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
-
                 displayPreviousBullsAndCows();
 
                 while(!displayGuess.isEmpty()){
@@ -170,6 +172,7 @@ public class MainGame extends World
                     backgroundMusic.stop(); // Stopping music.
                     Greenfoot.setWorld(new WinPage());
                 }
+                //resets bulls and cows
                 bulls = 0;
                 cows = 0;
 
