@@ -1,5 +1,10 @@
 import java.util.Iterator;
-
+/**
+ * Generic stack data structure.
+ * Taken from Mr. Chan.
+ * 
+ * @version Nov. 5/21
+ */
 public class Stack<E> implements Iterable<E>
 {
     private Node first = null;

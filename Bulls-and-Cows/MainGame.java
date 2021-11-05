@@ -14,13 +14,17 @@ public class MainGame extends World
 
     //Counter for number of tries
     private static final int COUNTER = 10;
+    
     //User guess
     Stack<Character> guess = new Stack<Character>();
     Stack<Character> displayGuess = new Stack<Character>();
+    
     //Number of letters in word
     private static final int numLetters = 4;
+    
     //Array of the alphabet
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    
     private String theWord;
     private String userInput;
     private char currentLetter;
@@ -32,9 +36,11 @@ public class MainGame extends World
 
     private boolean enterDown;
 
-    int y = 100;
     
     private Integer theCounter;
+
+    int y = 100; //Coordinate for displaying words on sidebar.
+
 
     /**
      * Constructor for objects of class MainGame.
@@ -200,16 +206,18 @@ public class MainGame extends World
     {
         boolean correct = true;
         char duplicateLetter = currentLetter;
-        for(int i = guess.size(); i > 0; i--)
+        for(int i = guess.size(); i > 0; i--) //Repeats for all letters in guess
         {
             if (!guess.isEmpty()){
                 currentLetter = guess.pop();
             }
+            //Letter perfectly matches letter in answer (bulls)
             if(currentLetter == theWord.charAt(i-1))
             {
                 bulls++;
                 duplicateLetter = currentLetter;
             }
+            //Letter is in incorrect position, but is in the answer (cows)
             else if(currentLetter != theWord.charAt(i-1) && theWord.contains(Character.toString(currentLetter)))
             {
                 cows++;
@@ -217,7 +225,7 @@ public class MainGame extends World
                     cows = 0;
                 }
             }
-
+            //Guess must be the same as answer for it to be correct.
             else if(currentLetter != theWord.charAt(i-1))
             {
                 correct = false;
@@ -244,7 +252,8 @@ public class MainGame extends World
     {
         Integer theBulls = new Integer(bulls);
         Integer theCows = new Integer(cows);
-
+        
+        //Concatenating letters of guess into word. 
         String text = "";
         for(Character c: displayGuess)
         {

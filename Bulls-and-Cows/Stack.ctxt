@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Stack
+comment0.text=\r\n\ Generic\ stack\ data\ structure.\r\n\ Taken\ from\ Mr.\ Chan.\r\n\ \r\n\ @version\ Nov.\ 5/21\r\n
 comment1.params=
 comment1.target=boolean\ isEmpty()
 comment2.params=item

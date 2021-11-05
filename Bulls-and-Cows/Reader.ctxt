@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Reader
+comment0.text=\r\n\ Takes\ word\ from\ URL.\r\n\ Taken\ from\ Mr.\ Chan.\r\n\ \r\n\ @version\ Nov.\ 5/21\r\n
 comment1.params=list
 comment1.target=void\ readInto(java.util.ArrayList)
 numComments=2
