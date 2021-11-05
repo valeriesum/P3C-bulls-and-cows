@@ -85,7 +85,7 @@ public class MainGame extends World
     }
 
     /**
-     * Takes in 5 guesses from user. Counter decreases by one every try.
+     * Takes in 10 guesses from user. Counter decreases by one every try.
      */
     public void act()
     {
@@ -97,34 +97,37 @@ public class MainGame extends World
         cows = 0;
         Integer theCounter = new Integer(counter);
         //Displaying objects on the screen.
-        if(counter > 0)
+        if(counter > 0 && guess.size() < 4)
         {
-            if(guess.size() < 4)
-            {
-                if (userInput != null){
 
-                    if(check(userInput)){
-                        char programInput = userInput.charAt(0);
-                        guess.push(programInput);
-                        displayGuess.push(programInput);
-                        if (guess.size()==1){
-                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
-                        } else if (guess.size()==2){
-                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 430, 480);
-                        } else if (guess.size()==3){
-                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
-                        } else if (guess.size()==4){
-                            addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
-                        }
+            if (userInput != null){
 
+                if(check(userInput)){
+                    char programInput = userInput.charAt(0);
+                    guess.push(programInput);
+                    displayGuess.push(programInput);
+                    if (guess.size()==1){
+                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
+                    } else if (guess.size()==2){
+                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 430, 480);
+                    } else if (guess.size()==3){
+                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
+                    } else if (guess.size()==4){
+                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
                     }
-                    removeObjects(getObjectsAt(95,50,null));
-                    addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
+
                 }
+                removeObjects(getObjectsAt(95,50,null));
+                addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
             }
 
         }
-        //Deleting letters off the screen.
+        
+        checkKeys();
+    }
+
+    private void checkKeys(){
+        //Deleting letters off the screen and stack
         if (Greenfoot.isKeyDown("backspace")){
 
             if(guess.size()==1){
@@ -146,10 +149,6 @@ public class MainGame extends World
             }
 
         }
-        checkKeys();
-    }
-
-    private void checkKeys(){
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
@@ -182,6 +181,7 @@ public class MainGame extends World
             }
         } 
     }
+
     /**
      * This method deletes all letters from guess off the screen.
      */
