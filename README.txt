@@ -14,7 +14,7 @@ Data structure used:
 - ArrayList
   - string arraylist in MainGame class
   ArrayList<String> myList = new ArrayList<String>();
-      - MainGame method (creates an ArrayList of words taken from another list of words 
+      - MainGame method (creates an ArrayList of words taken from another list of words)
       
 - Array
   - character array in MainGame class
