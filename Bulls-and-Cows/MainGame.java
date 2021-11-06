@@ -40,7 +40,6 @@ public class MainGame extends World
 
     int y = 100; //Coordinate for displaying words on sidebar.
 
-
     /**
      * Constructor for objects of class MainGame.
      *
@@ -104,34 +103,42 @@ public class MainGame extends World
         }
         checkKeys();
     }
-
+    
+    /**
+     * Displaying user's guess on dotted lines. Prompts user to press 
+     * ENTER when they type in their guess and shows number of tries left.
+     */
     private void checkGuessInput(){
         if (userInput != null){
-                if(check(userInput)){
-                    char programInput = userInput.charAt(0);
-                    guess.push(programInput);
-                    displayGuess.push(programInput);
-                    if (guess.size()==1){
-                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
-                    } else if (guess.size()==2){
-                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 430, 480);
-                    } else if (guess.size()==3){
-                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
-                    } else if (guess.size()==4){
-                        addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
-                        addObject(new Text("Enter to Confirm", 32, 0, 0, 0, 255, 216, 137), 680, 570);
-                    }
-
+            if(check(userInput)){
+                char programInput = userInput.charAt(0);
+                guess.push(programInput);
+                displayGuess.push(programInput);
+                if (guess.size()==1){
+                    addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 330, 480);
+                } else if (guess.size()==2){
+                    addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 430, 480);
+                } else if (guess.size()==3){
+                    addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 540, 480);
+                } else if (guess.size()==4){
+                    addObject(new Text(programInput, 85, 0, 0, 0, 255, 216, 137), 640, 480);
+                    addObject(new Text("Enter to Confirm", 32, 0, 0, 0, 255, 216, 137), 680, 570);
                 }
-                removeObjects(getObjectsAt(95,50,null));
-                addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
             }
+            removeObjects(getObjectsAt(95,50,null));
+            addObject(new Text("Tries Left: " + theCounter, 32, 255, 255, 255, 0, 0, 0), 95, 50);
+        }
     }
     
+    /**
+     * Allows user to press backspace to delete guess and checks to
+     * see if enter key is pressed.
+     * If counter reaches 0 or user makes correct guess, game will go to 
+     * win/lose page.
+     */
     private void checkKeys(){
         //Deleting letters off the screen and stack
         if (Greenfoot.isKeyDown("backspace")){
-
             if(guess.size()==1){
                 removeObjects(getObjectsAt(330, 470,null));
                 guess.pop();
@@ -154,7 +161,6 @@ public class MainGame extends World
         if (enterDown != Greenfoot.isKeyDown("enter")){
             enterDown = !enterDown;
             if (enterDown){
-                
                 checkBullsAndCows();
                 displayCurrentBullsAndCows();
                 displayPreviousBullsAndCows();
@@ -165,6 +171,7 @@ public class MainGame extends World
 
                 clearScreen();
                 counter--;
+                
                 if(counter == 0) //Player loses
                 {
                     backgroundMusic.stop(); // Stopping music.
